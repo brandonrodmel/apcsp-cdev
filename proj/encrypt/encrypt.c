@@ -22,6 +22,35 @@ char shiftChar(char c, int shift, int direction)
   //   shiftChar('c', 3, 1) : 'f'
   //   shiftChar('S', 2, 0) : 'P'
   //   shiftChar('b', 3, 0) : '8'
+
+  for (int i = 0; i < CHARS_LEN; i++)
+  {
+	if (CHARS[i] == c)
+	{
+		int index = i;
+		shift = shift % CHARS_LEN;
+		if (direction ==1)
+		{
+		  for (int i = 0; i < shift; i++)
+		  {
+		    index++;
+		    if (index == CHARS_LEN)
+			index = 0;
+		  }
+		}
+		else
+		{
+		  for (int i = 0; i < shift; i++)
+		  {
+		    index--;
+		    if (index < 0)
+			index = CHARS_LEN - 1;
+		  }
+		}
+	     return CHARS[index];
+	}
+  }
+  return c;
 }
 
 
